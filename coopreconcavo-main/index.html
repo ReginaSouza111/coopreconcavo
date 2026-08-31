@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoopRecôncavo - Agricultura Familiar</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SEUIDAQUI"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SEUIDAQUI');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-SEUIDAQUI');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/sw.js");
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-SEUIDAQUI" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- VLibras -->
+    <div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+    <header class="navbar">
+      <div class="logo-container">
+        <img
+          src="img/Design sem nome (10).png"
+          alt="Ilustração de agricultora colhendo capim"
+          class="logo-img"
+        />
+        <span class="logo-texto">Coop<strong>Recôncavo</strong></span>
+      </div>
+      <nav class="nav-links">
+        <a href="#produtos">Catálogo</a>
+        <a href="#familias">Famílias</a>
+        <a href="#contato">Orçamento</a>
+      </nav>
+    </header>
+
+    <section class="painel painel--hero">
+      <div class="hero">
+        <div class="hero-text">
+          <p class="hero-kicker">Santo Antônio de Jesus · Bahia</p>
+          <h1>Da nossa terra<br />para a sua mesa</h1>
+          <p>
+            Produção orgânica de excelência, plantada, colhida e gerida por
+            mulheres do campo do Recôncavo Baiano.
+          </p>
+          <a href="#produtos" class="hero-cta">Ver o catálogo</a>
+        </div>
+        <div class="hero-foto">
+          <img
+            src="img/12_jpg _ Alison Wright Photography.jpg"
+            alt="Foto da agricultora e da família produtora (substituir pela foto real)"
+            class="hero-foto-principal"
+          />
+          <img
+            src="img/download.jpg"
+            alt="Foto em destaque de uma das produtoras (substituir pela foto real)"
+            class="hero-foto-avatar"
+          />
+        </div>
+      </div>
+
+      <div class="divisor-produtos">
+        <span class="divisor-linha"></span>
+        <span class="divisor-label">Colheita da semana</span>
+        <svg class="divisor-seta" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M4 12h14M13 6l6 6-6 6"
+            fill="none"
+            stroke="var(--ouro-terra)"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <div class="produtos" id="produtos">
+        <div class="grid-produtos">
+          <article class="card-produto">
+            <img
+              src="img/produto-tomate.jpg"
+              alt="Foto de tomate orgânico (substituir pela foto real)"
+            />
+            <div class="card-produto-info">
+              <h3>Tomate Orgânico</h3>
+              <p>Caixa 10kg</p>
+            </div>
+          </article>
+          <article class="card-produto">
+            <img
+              src="img/produto-alface.jpg"
+              alt="Foto de alface crespa (substituir pela foto real)"
+            />
+            <div class="card-produto-info">
+              <h3>Alface Crespa</h3>
+              <p>Lote 50 un</p>
+            </div>
+          </article>
+          <article class="card-produto">
+            <img
+              src="img/produto-cenoura.jpg"
+              alt="Foto de cenoura (substituir pela foto real)"
+            />
+            <div class="card-produto-info">
+              <h3>Cenoura</h3>
+              <p>Saco 20kg</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="painel painel--escuro" id="familias">
+      <div class="section-heading section-heading--light">
+        <h2>Famílias produtoras</h2>
+        <svg class="heading-underline" viewBox="0 0 180 12" aria-hidden="true">
+          <path
+            d="M2 8 C 40 2, 80 10, 120 5 S 170 2, 178 6"
+            fill="none"
+            stroke="var(--amarelo-palha)"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+        </svg>
+        <p>
+          Conheça as lideranças femininas que coordenam o cultivo e a
+          administração das nossas propriedades.
+        </p>
+      </div>
+      <div class="grid-familias">
+        <a
+          href="https://www.instagram.com/bia_souza1502/"
+          target="_blank"
+          rel="noopener"
+          class="cracha"
+        >
+          <img
+            src="img/familia-almeida.jpg"
+            alt="Foto da Família Almeida (substituir pela foto real)"
+            class="cracha-foto"
+          />
+          <h3>Família Almeida</h3>
+          <p>Especialistas em hortaliças</p>
+          <span class="cracha-tag">@familiaalmeida</span>
+        </a>
+        <a
+          href="https://www.instagram.com/bia_souza1502/"
+          target="_blank"
+          rel="noopener"
+          class="cracha"
+        >
+          <img
+            src="img/familia-costa.jpg"
+            alt="Foto da Família Costa (substituir pela foto real)"
+            class="cracha-foto"
+          />
+          <h3>Família Costa</h3>
+          <p>Gestão de raízes e tubérculos</p>
+          <span class="cracha-tag">@familiacosta</span>
+        </a>
+      </div>
+
+      <div class="contato" id="contato">
+        <div class="contato-card">
+          <span class="form-tag">Form</span>
+          <div class="section-heading">
+            <h2>Solicitar orçamento</h2>
+            <svg
+              class="heading-underline"
+              viewBox="0 0 180 12"
+              aria-hidden="true"
+            >
+              <path
+                d="M2 8 C 40 2, 80 10, 120 5 S 170 2, 178 6"
+                fill="none"
+                stroke="var(--ouro-terra)"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
+            <p>
+              Conte o que sua empresa precisa e retornamos com valores e prazos
+              de entrega.
+            </p>
+          </div>
+          <form id="formOrcamento" class="form-orcamento">
+    <!-- Campo Honeypot Oculto (Anti-Spam/Bots não veem, mas preenchem) -->
+    <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+
+    <label for="empresa">Nome da empresa</label>
+    <input type="text" id="empresa" name="empresa" placeholder="Ex: Mercado Boa Terra" required>
+
+    <!-- Estes dois campos serão a isca capturada em texto claro no Wireshark -->
+    <label for="email">E-mail para contato</label>
+    <input type="email" id="email" name="email" placeholder="contato@suaempresa.com.br" required>
+
+    <label for="celular">Celular / WhatsApp</label>
+    <input type="tel" id="celular" name="celular" placeholder="(75) 9XXXX-XXXX" required>
+
+    <label for="pedido">O que você precisa?</label>
+    <textarea id="pedido" name="pedido" placeholder="Quais produtos e quantidades você deseja?" rows="4" required></textarea>
+
+    <button type="submit">Enviar solicitação</button>
+    <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+</form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="rodape">
+        <!-- Google Maps -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15555.228511739812!2d-39.2789!3d-12.9714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzE3LjAiUyAzOcKwMTYnNDQuMCJX!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr" width="100%" height="250" style="border:0;" loading="lazy"></iframe>
+        
+        <div style="padding: 20px;">
+            <p>CoopRecôncavo · Agricultura familiar em Santo Antônio de Jesus, Bahia</p>
+            <p style="margin-top: 10px;">
+                <a href="politica-privacidade.html" style="text-decoration: underline;">Política de Privacidade</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+      // Envio do formulário de orçamento.
+      // Substitua ENDPOINT_URL pelo endereço do seu backend, Google Forms
+      // ou serviço de formulários (ex: Formspree) quando estiver pronto.
+      const ENDPOINT_URL = "";
+
+      document
+        .getElementById("formOrcamento")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+          const feedback = document.getElementById("formFeedback");
+          const formData = new FormData(this);
+
+          if (!ENDPOINT_URL) {
+            feedback.textContent =
+              "Formulário pronto para receber um endereço de envio (configure ENDPOINT_URL).";
+            return;
+          }
+
+          try {
+            await fetch(ENDPOINT_URL, {
+              method: "POST",
+              mode: "no-cors",
+              body: formData,
+            });
+            feedback.textContent =
+              "Solicitação enviada! A cooperativa vai entrar em contato em breve.";
+            this.reset();
+          } catch (error) {
+            feedback.textContent =
+              "Não foi possível enviar agora. Tente novamente em instantes.";
+          }
+        });
+    </script>
+    <!-- Botão WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=5575999999999&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20CoopRec%C3%B4ncavo." class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <!-- GoAdopt (LGPD) -->
+    <script src="https://goadopt.io/widget.js"></script>
+  </body>
+</html>

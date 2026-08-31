@@ -1,0 +1,9 @@
+{
+  "name": "CoopRecôncavo",
+  "short_name": "CoopRecôncavo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0e383",
+  "theme_color": "#365006",
+  "icons": [{"src": "img/icone-192.png", "sizes": "192x192", "type": "image/png"}]
+}
