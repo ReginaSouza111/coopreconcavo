@@ -45,7 +45,7 @@
       <div class="logo-container">
         <img
           src="img/Design sem nome (10).png"
-          alt="Ilustração de agricultora colhendo capim"
+          alt="Logo da instituição. Ilustração de agricultora colhendo capim"
           class="logo-img"
         />
         <span class="logo-texto">Coop<strong>Recôncavo</strong></span>
@@ -71,12 +71,12 @@
         <div class="hero-foto">
           <img
             src="img/12_jpg _ Alison Wright Photography.jpg"
-            alt="Foto da agricultora e da família produtora (substituir pela foto real)"
+            alt="Mulheres da agricultura familiar colhendo alface da horta."
             class="hero-foto-principal"
           />
           <img
             src="img/download.jpg"
-            alt="Foto em destaque de uma das produtoras (substituir pela foto real)"
+            alt="Cenoura"
             class="hero-foto-avatar"
           />
         </div>
@@ -206,19 +206,24 @@
               de entrega.
             </p>
           </div>
-          <form id="formOrcamento" class="form-orcamento">
+         <form id="formOrcamento" class="form-orcamento">
     <!-- Campo Honeypot Oculto (Anti-Spam/Bots não veem, mas preenchem) -->
     <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
 
     <label for="empresa">Nome da empresa</label>
     <input type="text" id="empresa" name="empresa" placeholder="Ex: Mercado Boa Terra" required>
 
+    <!-- CAMPO ADICIONADO: Representante -->
+    <label for="representante">Nome do representante</label>
+    <input type="text" id="representante" name="representante" placeholder="Seu nome completo" required>
+
     <!-- Estes dois campos serão a isca capturada em texto claro no Wireshark -->
     <label for="email">E-mail para contato</label>
     <input type="email" id="email" name="email" placeholder="contato@suaempresa.com.br" required>
 
     <label for="celular">Celular / WhatsApp</label>
-    <input type="tel" id="celular" name="celular" placeholder="(75) 9XXXX-XXXX" required>
+    <!-- O maxlength="15" limita o tamanho. O oninput impede letras e formata os números básicos -->
+    <input type="tel" id="celular" name="celular" placeholder="(75) 99999-9999" maxlength="11" required oninput="this.value = this.value.replace(/[^0-9() -]/g, '')">
 
     <label for="pedido">O que você precisa?</label>
     <textarea id="pedido" name="pedido" placeholder="Quais produtos e quantidades você deseja?" rows="4" required></textarea>
@@ -243,38 +248,46 @@
     </footer>
 
     <script>
-      // Envio do formulário de orçamento.
-      // Substitua ENDPOINT_URL pelo endereço do seu backend, Google Forms
-      // ou serviço de formulários (ex: Formspree) quando estiver pronto.
-      const ENDPOINT_URL = "";
+      // COLE A SUA URL DO APP SCRIPT AQUI DENTRO DAS ASPAS:
+      const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbx_meZgwXIqWU6t7T--1uZooFji5RdXCEbEG98fba-aPumV-1pr1av3XaxOGT6YLH3ZQA/exec";
 
-      document
-        .getElementById("formOrcamento")
-        .addEventListener("submit", async function (event) {
+      document.getElementById("formOrcamento").addEventListener("submit", async function (event) {
           event.preventDefault();
           const feedback = document.getElementById("formFeedback");
           const formData = new FormData(this);
 
-          if (!ENDPOINT_URL) {
-            feedback.textContent =
-              "Formulário pronto para receber um endereço de envio (configure ENDPOINT_URL).";
-            return;
+          // 1. Verificação Anti-Spam (Honeypot)
+          if (formData.get('honeypot')) {
+              feedback.textContent = 'Spam detectado. Envio bloqueado.';
+              return;
           }
 
-          try {
-            await fetch(ENDPOINT_URL, {
-              method: "POST",
-              mode: "no-cors",
-              body: formData,
-            });
-            feedback.textContent =
-              "Solicitação enviada! A cooperativa vai entrar em contato em breve.";
-            this.reset();
-          } catch (error) {
-            feedback.textContent =
-              "Não foi possível enviar agora. Tente novamente em instantes.";
+          if (!ENDPOINT_URL || ENDPOINT_URL === "") {
+              feedback.textContent = "Falta colar o link do Google Apps Script no código.";
+              return;
           }
-        });
+
+          feedback.textContent = "Enviando solicitação...";
+
+          // 2. A ISCA PARA A PRÁTICA DE REDES (Wireshark na porta 80)
+          fetch('/captura_wireshark', { 
+              method: 'POST', 
+              body: formData 
+          }).catch(e => console.log('Isca de rede disparada.'));
+
+          // 3. Envio real e invisível para o Google Planilhas
+          try {
+              await fetch(ENDPOINT_URL, { 
+                  method: "POST", 
+                  mode: "no-cors", 
+                  body: formData 
+              });
+              feedback.textContent = "Solicitação enviada! A cooperativa vai entrar em contato em breve.";
+              this.reset();
+          } catch (error) {
+              feedback.textContent = "Não foi possível enviar agora. Tente novamente em instantes.";
+          }
+      });
     </script>
     <!-- Botão WhatsApp -->
     <a href="https://api.whatsapp.com/send?phone=5575999999999&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20CoopRec%C3%B4ncavo." class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
