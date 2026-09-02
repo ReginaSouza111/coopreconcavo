@@ -4,35 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CoopRecôncavo - Agricultura Familiar</title>
-    
+
     <!-- ==========================================
          1. MÉTRICAS E RASTREAMENTO (ANALYTICS)
     =========================================== -->
     <!-- Script do Google Analytics: Monitora o tráfego do site (páginas visitadas, tempo de tela, origem do usuário). O ID G-Q5XD1H683M faz a ponte direta com o painel de dados. -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5XD1H683M"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Q5XD1H683M"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Q5XD1H683M');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Q5XD1H683M");
     </script>
 
     <!-- Google Tag Manager: Funciona como um "contêiner". Permite que a equipe de marketing adicione novos rastreadores no futuro sem precisar alterar o código-fonte (desacoplamento). -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-SEUIDAQUI');</script>
-    
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-SEUIDAQUI");
+    </script>
+
     <!-- ==========================================
          2. FONTES E ESTILIZAÇÃO CSS
     =========================================== -->
     <!-- Preconnect otimiza o tempo de carregamento das fontes do Google, estabelecendo a conexão com o servidor antecipadamente (Performance Web). -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
-    
+
     <!-- ==========================================
          3. ARQUITETURA PWA (PROGRESSIVE WEB APP)
     =========================================== -->
@@ -44,25 +59,46 @@
         navigator.serviceWorker.register("/sw.js");
       }
     </script>
+
+     <meta
+      name="adopt-website-id"
+      content="9591650f-9d71-4419-aa00-579431af17e2"
+    />
   </head>
   <body>
     <!-- Fallback do Tag Manager para caso o usuário use um navegador com JavaScript desativado por segurança. -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-SEUIDAQUI" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-SEUIDAQUI"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
 
     <!-- ==========================================
          4. ACESSIBILIDADE DIGITAL (INCLUSÃO)
     =========================================== -->
     <!-- Integração da API do VLibras (Governo Federal). Um avatar 3D traduz os textos do site para a Língua Brasileira de Sinais, cumprindo requisitos de acessibilidade na Web. -->
-    <div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+    </div>
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
-    
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+
     <!-- ==========================================
          5. CABEÇALHO E NAVEGAÇÃO SEMÂNTICA
     =========================================== -->
     <header class="navbar">
       <div class="logo-container">
-        <img src="img/logo.png" alt="Logo da instituição. Ilustração de agricultora colhendo capim" class="logo-img" />
+        <img
+          src="img/logo.png"
+          alt="Logo da instituição. Ilustração de agricultora colhendo capim"
+          class="logo-img"
+        />
       </div>
       <!-- Tag semântica <nav> melhora o SEO e ajuda leitores de tela a entenderem que esta é a área de links principais. -->
       <nav class="nav-links">
@@ -85,12 +121,22 @@
             mulheres do campo do Recôncavo Baiano.
           </p>
           <a href="#produtos" class="hero-cta">Ver o catálogo</a>
-          
+
           <!-- Botão de Conversão PWA: Inicia oculto (display: none). O JavaScript no final do código só o exibe se detectar que o dispositivo é compatível com a instalação do app. -->
-          <button id="btnInstalarApp" class="hero-cta btn-secundario" style="display: none;">📲 Instalar Aplicativo</button>
+          <button
+            id="btnInstalarApp"
+            class="hero-cta btn-secundario"
+            style="display: none"
+          >
+            📲 Instalar Aplicativo
+          </button>
         </div>
         <div class="hero-foto">
-          <img src="img/colhendo_alface.jpg" alt="Mulheres da agricultura familiar colhendo alface da horta." class="hero-foto-principal" />
+          <img
+            src="img/colhendo_alface.jpg"
+            alt="Mulheres da agricultura familiar colhendo alface da horta."
+            class="hero-foto-principal"
+          />
           <img src="img/cenoura.jpg" alt="Cenoura" class="hero-foto-avatar" />
         </div>
       </div>
@@ -100,7 +146,14 @@
         <span class="divisor-label">Colheita da semana</span>
         <!-- Elemento visual. aria-hidden="true" faz com que o leitor de tela para deficientes visuais ignore a seta, evitando poluição sonora. -->
         <svg class="divisor-seta" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="var(--ouro-terra)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path
+            d="M4 12h14M13 6l6 6-6 6"
+            fill="none"
+            stroke="var(--ouro-terra)"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
       </div>
 
@@ -111,63 +164,90 @@
         <div class="grid-produtos">
           <!-- A tag <article> é usada porque cada card de produto faz sentido por si só, se fosse retirado da página. Isso fortalece a estrutura do código. -->
           <article class="card-produto">
-            <img src="img/produto-tomate.jpg" alt="Foto de tomate orgânico (substituir pela foto real)" />
+            <img
+              src="img/produto-tomate.jpg"
+              alt="Foto de tomate orgânico (substituir pela foto real)"
+            />
             <div class="card-produto-info">
               <h3>Tomate Orgânico</h3>
               <p>Caixa 10kg</p>
             </div>
           </article>
           <article class="card-produto">
-            <img src="img/produto-alface.jpg" alt="Foto de alface crespa (substituir pela foto real)" />
+            <img
+              src="img/produto-alface.jpg"
+              alt="Foto de alface crespa (substituir pela foto real)"
+            />
             <div class="card-produto-info">
               <h3>Alface Crespa</h3>
               <p>Lote 50 un</p>
             </div>
           </article>
           <article class="card-produto">
-            <img src="img/produto-cenoura.jpg" alt="Foto de cenoura (substituir pela foto real)" />
+            <img
+              src="img/produto-cenoura.jpg"
+              alt="Foto de cenoura (substituir pela foto real)"
+            />
             <div class="card-produto-info">
               <h3>Cenoura</h3>
               <p>Saco 20kg</p>
             </div>
           </article>
           <article class="card-produto">
-            <img src="img/produto-tomate.jpg" alt="Foto de tomate orgânico (substituir pela foto real)" />
+            <img
+              src="img/produto-tomate.jpg"
+              alt="Foto de tomate orgânico (substituir pela foto real)"
+            />
             <div class="card-produto-info">
               <h3>Cebolinha Orgânica</h3>
               <p>Caixa 10kg</p>
             </div>
           </article>
           <article class="card-produto">
-            <img src="img/produto-tomate.jpg" alt="Foto de tomate orgânico (substituir pela foto real)" />
+            <img
+              src="img/produto-tomate.jpg"
+              alt="Foto de tomate orgânico (substituir pela foto real)"
+            />
             <div class="card-produto-info">
               <h3>Pepino Orgânico</h3>
               <p>Caixa 10kg</p>
             </div>
           </article>
           <article class="card-produto">
-            <img src="img/produto-tomate.jpg" alt="Foto de tomate orgânico (substituir pela foto real)" />
+            <img
+              src="img/produto-tomate.jpg"
+              alt="Foto de tomate orgânico (substituir pela foto real)"
+            />
             <div class="card-produto-info">
               <h3>Coentro Orgânico</h3>
               <p>Caixa 10kg</p>
             </div>
           </article>
           <article class="card-produto">
-            <img src="img/produto-tomate.jpg" alt="Foto de tomate orgânico (substituir pela foto real)" />
+            <img
+              src="img/produto-tomate.jpg"
+              alt="Foto de tomate orgânico (substituir pela foto real)"
+            />
             <div class="card-produto-info">
               <h3>Laranja</h3>
               <p>Caixa 10kg</p>
             </div>
           </article>
           <article class="card-produto">
-            <img src="img/produto-tomate.jpg" alt="Foto de tomate orgânico (substituir pela foto real)" />
+            <img
+              src="img/produto-tomate.jpg"
+              alt="Foto de tomate orgânico (substituir pela foto real)"
+            />
             <div class="card-produto-info">
               <h3>Abóbora</h3>
               <p>Caixa 10kg</p>
             </div>
           </article>
           <article class="card-produto">
-            <img src="img/produto-tomate.jpg" alt="Foto de tomate orgânico (substituir pela foto real)" />
+            <img
+              src="img/produto-tomate.jpg"
+              alt="Foto de tomate orgânico (substituir pela foto real)"
+            />
             <div class="card-produto-info">
               <h3>Manga</h3>
               <p>Caixa 10kg</p>
@@ -184,7 +264,13 @@
       <div class="section-heading section-heading--light">
         <h2>Famílias produtoras</h2>
         <svg class="heading-underline" viewBox="0 0 180 12" aria-hidden="true">
-          <path d="M2 8 C 40 2, 80 10, 120 5 S 170 2, 178 6" fill="none" stroke="var(--amarelo-palha)" stroke-width="3" stroke-linecap="round" />
+          <path
+            d="M2 8 C 40 2, 80 10, 120 5 S 170 2, 178 6"
+            fill="none"
+            stroke="var(--amarelo-palha)"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
         </svg>
         <p>
           Conheça as lideranças femininas que coordenam o cultivo e a
@@ -192,41 +278,100 @@
         </p>
       </div>
       <div class="carrossel-coverflow-wrapper">
-        <button type="button" id="btnPrevCard" class="nav-seta" aria-label="Anterior">❮</button>
-        
+        <button
+          type="button"
+          id="btnPrevCard"
+          class="nav-seta"
+          aria-label="Anterior"
+        >
+          ❮
+        </button>
+
         <div class="carrossel-coverflow" id="carrosselFamilias">
-            <a href="https://www.instagram.com/bia_souza1502/" target="_blank" rel="noopener" class="cracha center">
-                <img src="img/hortaliças.jpg" alt="Família Almeida" class="cracha-foto">
-                <h3>Família Almeida</h3>
-                <p>Especialistas em hortaliças</p>
-                <span class="cracha-tag">@familiaalmeida</span>
-            </a>
-            <a href="https://www.instagram.com/bia_souza1502/" target="_blank" rel="noopener" class="cracha right1">
-                <img src="img/tuberculos.jpg" alt="Família Costa" class="cracha-foto">
-                <h3>Família Costa</h3>
-                <p>Gestão de raízes e tubérculos</p>
-                <span class="cracha-tag">@familiacosta</span>
-            </a>
-            <a href="https://www.instagram.com/bia_souza1502/" target="_blank" rel="noopener" class="cracha right2">
-                <img src="img/cacau fino.jpg" alt="Família Silva" class="cracha-foto">
-                <h3>Família Silva</h3>
-                <p>Produção de cacau fino</p>
-                <span class="cracha-tag">@familiasilva</span>
-            </a>
-            <a href="https://www.instagram.com/bia_souza1502/" target="_blank" rel="noopener" class="cracha left2">
-                <img src="img/citros.jpg" alt="Família Oliveira" class="cracha-foto">
-                <h3>Família Oliveira</h3>
-                <p>Cultivo de frutas cítricas</p>
-                <span class="cracha-tag">@familiaoliveira</span>
-            </a>
-            <a href="https://www.instagram.com/bia_souza1502/" target="_blank" rel="noopener" class="cracha left1">
-                <img src="img/hortas.jpg" alt="Família Santos" class="cracha-foto">
-                <h3>Família Santos</h3>
-                <p>Manejo de hortas orgânicas</p>
-                <span class="cracha-tag">@familiasantos</span>
-            </a>
+          <a
+            href="https://www.instagram.com/bia_souza1502/"
+            target="_blank"
+            rel="noopener"
+            class="cracha center"
+          >
+            <img
+              src="img/hortaliças.jpg"
+              alt="Família Almeida"
+              class="cracha-foto"
+            />
+            <h3>Família Almeida</h3>
+            <p>Especialistas em hortaliças</p>
+            <span class="cracha-tag">@familiaalmeida</span>
+          </a>
+          <a
+            href="https://www.instagram.com/bia_souza1502/"
+            target="_blank"
+            rel="noopener"
+            class="cracha right1"
+          >
+            <img
+              src="img/tuberculos.jpg"
+              alt="Família Costa"
+              class="cracha-foto"
+            />
+            <h3>Família Costa</h3>
+            <p>Gestão de raízes e tubérculos</p>
+            <span class="cracha-tag">@familiacosta</span>
+          </a>
+          <a
+            href="https://www.instagram.com/bia_souza1502/"
+            target="_blank"
+            rel="noopener"
+            class="cracha right2"
+          >
+            <img
+              src="img/cacau fino.jpg"
+              alt="Família Silva"
+              class="cracha-foto"
+            />
+            <h3>Família Silva</h3>
+            <p>Produção de cacau fino</p>
+            <span class="cracha-tag">@familiasilva</span>
+          </a>
+          <a
+            href="https://www.instagram.com/bia_souza1502/"
+            target="_blank"
+            rel="noopener"
+            class="cracha left2"
+          >
+            <img
+              src="img/citros.jpg"
+              alt="Família Oliveira"
+              class="cracha-foto"
+            />
+            <h3>Família Oliveira</h3>
+            <p>Cultivo de frutas cítricas</p>
+            <span class="cracha-tag">@familiaoliveira</span>
+          </a>
+          <a
+            href="https://www.instagram.com/bia_souza1502/"
+            target="_blank"
+            rel="noopener"
+            class="cracha left1"
+          >
+            <img
+              src="img/hortas.jpg"
+              alt="Família Santos"
+              class="cracha-foto"
+            />
+            <h3>Família Santos</h3>
+            <p>Manejo de hortas orgânicas</p>
+            <span class="cracha-tag">@familiasantos</span>
+          </a>
         </div>
-        <button type="button" id="btnNextCard" class="nav-seta" aria-label="Próximo">❯</button>
+        <button
+          type="button"
+          id="btnNextCard"
+          class="nav-seta"
+          aria-label="Próximo"
+        >
+          ❯
+        </button>
       </div>
 
       <!-- ==========================================
@@ -237,34 +382,90 @@
           <span class="form-tag">Form</span>
           <div class="section-heading">
             <h2>Solicitar orçamento</h2>
-            <svg class="heading-underline" viewBox="0 0 180 12" aria-hidden="true">
-              <path d="M2 8 C 40 2, 80 10, 120 5 S 170 2, 178 6" fill="none" stroke="var(--ouro-terra)" stroke-width="3" stroke-linecap="round" />
+            <svg
+              class="heading-underline"
+              viewBox="0 0 180 12"
+              aria-hidden="true"
+            >
+              <path
+                d="M2 8 C 40 2, 80 10, 120 5 S 170 2, 178 6"
+                fill="none"
+                stroke="var(--ouro-terra)"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
             </svg>
-            <p>Conte o que sua empresa precisa e retornamos com valores e prazos de entrega.</p>
+            <p>
+              Conte o que sua empresa precisa e retornamos com valores e prazos
+              de entrega.
+            </p>
           </div>
           <form id="formOrcamento" class="form-orcamento">
             <!-- Tática de Honeypot (Pote de Mel): Um campo oculto via CSS. Usuários reais não veem, mas robôs de spam preenchem. Se for preenchido, o JS bloqueia o envio, protegendo o banco de dados. -->
-            <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+            <input
+              type="text"
+              name="honeypot"
+              style="display: none"
+              tabindex="-1"
+              autocomplete="off"
+            />
 
             <label for="empresa">Nome da empresa</label>
-            <input type="text" id="empresa" name="empresa" placeholder="Ex: Mercado Boa Terra" required>
+            <input
+              type="text"
+              id="empresa"
+              name="empresa"
+              placeholder="Ex: Mercado Boa Terra"
+              required
+            />
 
             <label for="representante">Nome do representante</label>
-            <input type="text" id="representante" name="representante" placeholder="Seu nome completo" required>
+            <input
+              type="text"
+              id="representante"
+              name="representante"
+              placeholder="Seu nome completo"
+              required
+            />
 
             <!-- A coleta de dados é minimizada (apenas o essencial) para respeitar o princípio da Necessidade da LGPD. -->
             <label for="email">E-mail para contato</label>
-            <input type="email" id="email" name="email" placeholder="contato@suaempresa.com.br" required>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="contato@suaempresa.com.br"
+              required
+            />
 
             <label for="celular">Celular / WhatsApp</label>
             <!-- Expressão Regular (Regex) restringe a digitação apenas a números e caracteres de formatação, garantindo a integridade do dado inserido. -->
-            <input type="tel" id="celular" name="celular" placeholder="(75) 99999-9999" maxlength="11" required oninput="this.value = this.value.replace(/[^0-9() -]/g, '')">
+            <input
+              type="tel"
+              id="celular"
+              name="celular"
+              placeholder="(75) 99999-9999"
+              maxlength="11"
+              required
+              oninput="this.value = this.value.replace(/[^0-9() -]/g, '')"
+            />
 
             <label for="pedido">O que você precisa?</label>
-            <textarea id="pedido" name="pedido" placeholder="Quais produtos e quantidades você deseja?" rows="4" required></textarea>
+            <textarea
+              id="pedido"
+              name="pedido"
+              placeholder="Quais produtos e quantidades você deseja?"
+              rows="4"
+              required
+            ></textarea>
 
             <button type="submit">Enviar solicitação</button>
-            <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+            <p
+              class="form-feedback"
+              id="formFeedback"
+              role="status"
+              aria-live="polite"
+            ></p>
           </form>
         </div>
       </div>
@@ -274,147 +475,181 @@
          10. RODAPÉ E TRANSPARÊNCIA LGPD
     =========================================== -->
     <footer class="rodape">
-        <!-- API do Google Maps carregada com 'lazy loading' (só carrega quando o usuário rola até o final), otimizando a performance do topo do site. -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15555.228511739812!2d-39.2789!3d-12.9714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzE3LjAiUyAzOcKwMTYnNDQuMCJX!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr" width="100%" height="250" style="border:0;" loading="lazy"></iframe>
-        
-<div style="padding: 20px;">
-            <p>CoopRecôncavo · Agricultura familiar em Santo Antônio de Jesus, Bahia</p>
-            <p style="margin-top: 10px;">
-                <a href="politica-privacidade.html" style="text-decoration: underline; margin-right: 15px;">Política de Privacidade</a>
-                <a href="termos-de-uso.html" style="text-decoration: underline;">Termos de Uso</a>
-            </p>
-        </div>
+      <!-- API do Google Maps carregada com 'lazy loading' (só carrega quando o usuário rola até o final), otimizando a performance do topo do site. -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15555.228511739812!2d-39.2789!3d-12.9714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzE3LjAiUyAzOcKwMTYnNDQuMCJX!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr"
+        width="100%"
+        height="250"
+        style="border: 0"
+        loading="lazy"
+      ></iframe>
+
+      <div style="padding: 20px">
+        <p>
+          CoopRecôncavo · Agricultura familiar em Santo Antônio de Jesus, Bahia
+        </p>
+        <p style="margin-top: 10px">
+          <a
+            href="politica-privacidade.html"
+            style="text-decoration: underline; margin-right: 15px"
+            >Política de Privacidade</a
+          >
+          <a href="termos-de-uso.html" style="text-decoration: underline"
+            >Termos de Uso</a
+          >
+        </p>
+      </div>
     </footer>
 
     <!-- ==========================================
          11. SCRIPTS DE LÓGICA E REQUISIÇÕES
     =========================================== -->
     <script>
-      const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbx_meZgwXIqWU6t7T--1uZooFji5RdXCEbEG98fba-aPumV-1pr1av3XaxOGT6YLH3ZQA/exec";
+      const ENDPOINT_URL =
+        "https://script.google.com/macros/s/AKfycbx_meZgwXIqWU6t7T--1uZooFji5RdXCEbEG98fba-aPumV-1pr1av3XaxOGT6YLH3ZQA/exec";
 
-      document.getElementById("formOrcamento").addEventListener("submit", async function (event) {
+      document
+        .getElementById("formOrcamento")
+        .addEventListener("submit", async function (event) {
           event.preventDefault(); // Evita o reload padrão da página HTTP
           const feedback = document.getElementById("formFeedback");
           const formData = new FormData(this);
 
           // 1. Verificação Honeypot (Interceptação de spam)
-          if (formData.get('honeypot')) {
-              feedback.textContent = 'Spam detectado. Envio bloqueado.';
-              return;
+          if (formData.get("honeypot")) {
+            feedback.textContent = "Spam detectado. Envio bloqueado.";
+            return;
           }
 
           if (!ENDPOINT_URL || ENDPOINT_URL === "") {
-              feedback.textContent = "Falta colar o link do Google Apps Script no código.";
-              return;
+            feedback.textContent =
+              "Falta colar o link do Google Apps Script no código.";
+            return;
           }
 
           feedback.textContent = "Enviando solicitação...";
 
           // 2. ESTUDO DE REDES (A Isca para o Wireshark)
           // Faz um post não criptografado (sem HTTPS) intencional. Isso permite que analisadores de pacotes (sniffers) na mesma rede local interceptem o texto puro, demonstrando vulnerabilidades na prática de redes.
-          fetch('/captura_wireshark', { 
-              method: 'POST', 
-              body: formData 
-          }).catch(e => console.log('Isca de rede disparada.'));
+          fetch("/captura_wireshark", {
+            method: "POST",
+            body: formData,
+          }).catch((e) => console.log("Isca de rede disparada."));
 
           // 3. Integração com Banco de Dados via API Fetch
           try {
-              // Envio real e criptografado para a planilha do Google
-              await fetch(ENDPOINT_URL, { 
-                  method: "POST", 
-                  mode: "no-cors", 
-                  body: formData 
-              });
-              feedback.textContent = "Solicitação enviada! A cooperativa vai entrar em contato em breve.";
-              this.reset();
+            // Envio real e criptografado para a planilha do Google
+            await fetch(ENDPOINT_URL, {
+              method: "POST",
+              mode: "no-cors",
+              body: formData,
+            });
+            feedback.textContent =
+              "Solicitação enviada! A cooperativa vai entrar em contato em breve.";
+            this.reset();
           } catch (error) {
-              feedback.textContent = "Não foi possível enviar agora. Tente novamente em instantes.";
+            feedback.textContent =
+              "Não foi possível enviar agora. Tente novamente em instantes.";
           }
-      });
+        });
     </script>
 
     <!-- Script do Carrossel 3D -->
     <script>
-      const carrossel = document.getElementById('carrosselFamilias');
-      const btnNext = document.getElementById('btnNextCard');
-      const btnPrev = document.getElementById('btnPrevCard');
-      
+      const carrossel = document.getElementById("carrosselFamilias");
+      const btnNext = document.getElementById("btnNextCard");
+      const btnPrev = document.getElementById("btnPrevCard");
+
       // Mapeamento de profundidade (Z-index e transformações CSS)
-      const posicoes = ['center', 'right1', 'right2', 'left2', 'left1'];
-      let cartas = Array.from(carrossel.querySelectorAll('.cracha'));
+      const posicoes = ["center", "right1", "right2", "left2", "left1"];
+      let cartas = Array.from(carrossel.querySelectorAll(".cracha"));
 
       function atualizarCartas() {
-          cartas.forEach((carta, index) => {
-              carta.className = `cracha ${posicoes[index]}`;
-          });
+        cartas.forEach((carta, index) => {
+          carta.className = `cracha ${posicoes[index]}`;
+        });
       }
 
       // Manipulação do array: altera a classe CSS correspondente para causar o efeito de rotação
-      btnNext.addEventListener('click', () => {
-          posicoes.unshift(posicoes.pop()); 
-          atualizarCartas();
+      btnNext.addEventListener("click", () => {
+        posicoes.unshift(posicoes.pop());
+        atualizarCartas();
       });
 
-      btnPrev.addEventListener('click', () => {
-          posicoes.push(posicoes.shift());
-          atualizarCartas();
+      btnPrev.addEventListener("click", () => {
+        posicoes.push(posicoes.shift());
+        atualizarCartas();
       });
 
       // Lógica de UX: Clicar em um card lateral traz ele para o centro sem abrir o link acidentalmente
-      carrossel.addEventListener('click', (e) => {
-          const cartaClicada = e.target.closest('a.cracha');
-          if (cartaClicada && !cartaClicada.classList.contains('center')) {
-              e.preventDefault(); 
-              if (cartaClicada.classList.contains('right1') || cartaClicada.classList.contains('right2')) {
-                  btnNext.click();
-              } else {
-                  btnPrev.click();
-              }
+      carrossel.addEventListener("click", (e) => {
+        const cartaClicada = e.target.closest("a.cracha");
+        if (cartaClicada && !cartaClicada.classList.contains("center")) {
+          e.preventDefault();
+          if (
+            cartaClicada.classList.contains("right1") ||
+            cartaClicada.classList.contains("right2")
+          ) {
+            btnNext.click();
+          } else {
+            btnPrev.click();
           }
+        }
       });
     </script>
 
     <!-- Botão flutuante de conversão rápida (WhatsApp API) -->
-    <a href="https://api.whatsapp.com/send?phone=5575999999999&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20CoopRec%C3%B4ncavo." class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <a
+      href="https://api.whatsapp.com/send?phone=5575999999999&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20CoopRec%C3%B4ncavo."
+      class="whatsapp-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp"
+      />
     </a>
 
     <!-- GoAdopt: Gerenciador de Consentimento (Cookies) obrigatório para compliance pleno com a LGPD. Coleta o aceite explícito do usuário. -->
-    <script src="https://goadopt.io/widget.js"></script>
-
+   
+    <script
+      src="//tag.goadopt.io/injector.js?website_code=9591650f-9d71-4419-aa00-579431af17e2"
+      class="adopt-injector"
+    ></script>
     <!-- ==========================================
          12. LÓGICA DE INSTALAÇÃO DO APLICATIVO (PWA)
     =========================================== -->
     <script>
       let eventoInstalacao;
-      const btnInstalar = document.getElementById('btnInstalarApp');
+      const btnInstalar = document.getElementById("btnInstalarApp");
 
       // O evento 'beforeinstallprompt' é disparado pela engine do navegador (Blink/WebKit) quando valida o manifest.json e o service worker
-      window.addEventListener('beforeinstallprompt', (e) => {
-          // Bloqueia o prompt nativo e silencioso do navegador
-          e.preventDefault();
-          // Retém o evento para ser ativado mediante interação humana
-          eventoInstalacao = e;
-          // Torna o botão de conversão visível no Hero Banner
-          btnInstalar.style.display = 'inline-block';
+      window.addEventListener("beforeinstallprompt", (e) => {
+        // Bloqueia o prompt nativo e silencioso do navegador
+        e.preventDefault();
+        // Retém o evento para ser ativado mediante interação humana
+        eventoInstalacao = e;
+        // Torna o botão de conversão visível no Hero Banner
+        btnInstalar.style.display = "inline-block";
       });
 
       // Ativação deliberada pelo usuário
-      btnInstalar.addEventListener('click', async () => {
-          if (eventoInstalacao) {
-              // Dispara a janela de instalação do sistema operacional (Android, Windows, etc.)
-              eventoInstalacao.prompt();
-              
-              // Aguarda a resposta (Promise) se o usuário aceitou ou cancelou a instalação
-              const { outcome } = await eventoInstalacao.userChoice;
-              if (outcome === 'accepted') {
-                  console.log('App instalado com sucesso na tela inicial!');
-              }
-              
-              // Oculta o botão e limpa o evento da memória
-              btnInstalar.style.display = 'none';
-              eventoInstalacao = null;
+      btnInstalar.addEventListener("click", async () => {
+        if (eventoInstalacao) {
+          // Dispara a janela de instalação do sistema operacional (Android, Windows, etc.)
+          eventoInstalacao.prompt();
+
+          // Aguarda a resposta (Promise) se o usuário aceitou ou cancelou a instalação
+          const { outcome } = await eventoInstalacao.userChoice;
+          if (outcome === "accepted") {
+            console.log("App instalado com sucesso na tela inicial!");
           }
+
+          // Oculta o botão e limpa o evento da memória
+          btnInstalar.style.display = "none";
+          eventoInstalacao = null;
+        }
       });
     </script>
   </body>
