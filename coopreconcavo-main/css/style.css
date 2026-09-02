@@ -1,3 +1,8 @@
+/* ==========================================================================
+   1. VARIÁVEIS CSS (DESIGN SYSTEM E MANUTENÇÃO)
+   Essas variáveis garantem consistência visual. Se a cooperativa quiser 
+   mudar a paleta de cores no futuro, basta alterar aqui e o site todo atualiza.
+========================================================================== */
 :root {
     --verde-escuro: #365006;
     --marrom-escuro: #351903;
@@ -9,21 +14,31 @@
     --fonte-corpo: "Work Sans", Arial, sans-serif;
 }
 
+/* ==========================================================================
+   2. RESET CSS E CONFIGURAÇÕES GERAIS
+========================================================================== */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Garante que padding não aumente o tamanho total dos elementos */
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Cria o efeito de rolagem suave ao clicar nos links do menu */
 }
 
+/* 
+   Tags Body unificadas (havia sobreposição no código anterior). 
+   Aqui aplicamos as cores base e um efeito visual avançado: um background de "pontilhismo" 
+   usando radial-gradient para dar uma textura sutil de terra/areia.
+*/
 body {
     background-color: var(--amarelo-palha);
     color: var(--marrom-escuro);
     font-family: var(--fonte-corpo);
     line-height: 1.5;
+    background-image: radial-gradient(rgba(53, 25, 3, 0.035) 1px, transparent 1px);
+    background-size: 3px 3px;
 }
 
 a {
@@ -35,25 +50,18 @@ img {
     max-width: 100%;
 }
 
-body {
-    background-image: radial-gradient(rgba(53, 25, 3, 0.035) 1px, transparent 1px);
-    background-size: 3px 3px;
-}
-
-/* ---------- Navbar ---------- */
-
-/* ---------- Navbar ---------- */
-
-/* ---------- Navbar ---------- */
-
+/* ==========================================================================
+   3. CABEÇALHO (NAVBAR) - FLEXBOX
+========================================================================== */
+/* O display: flex é usado para centralizar e alinhar a logo e os links perfeitamente */
 .navbar {
     background-color: var(--verde-escuro);
-    padding: 10px 25px 15px; /* Reduzido drasticamente para secar o espaço verde no topo e fundo */
+    padding: 10px 25px 15px; 
     display: flex;
     flex-direction: column; 
     align-items: center;    
     justify-content: center;
-    gap: 10px; /* Quase nenhum espaço vazio entre a logo e os botões */
+    gap: 10px; 
 }
 
 .logo-container {
@@ -62,8 +70,9 @@ body {
     justify-content: center;
 }
 
+/* Filtros CSS (filter) alteram a cor da imagem PNG diretamente no código, sem precisar do Photoshop */
 .logo-img {
-    height: 100px; /* Logo grande! Se quiser maior, suba para 220px */
+    height: 100px;
     width: auto;
     object-fit: contain;
     filter: brightness(0) saturate(100%) invert(94%) sepia(24%) saturate(500%) hue-rotate(1deg) brightness(101%);
@@ -89,8 +98,9 @@ body {
     color: #fff;
 }
 
-/* ---------- Painéis (dois blocos grandes, como no rascunho) ---------- */
-
+/* ==========================================================================
+   4. PAINÉIS GERAIS DE FUNDO
+========================================================================== */
 .painel--hero {
     background-color: var(--verde-oliva);
     padding-bottom: 64px;
@@ -101,8 +111,9 @@ body {
     padding: 72px 6vw;
 }
 
-/* ---------- Hero ---------- */
-
+/* ==========================================================================
+   5. SEÇÃO HERO (GRID E TIPOGRAFIA FLUIDA)
+========================================================================== */
 .hero {
     display: grid;
     grid-template-columns: minmax(260px, 1fr) minmax(300px, 460px);
@@ -111,6 +122,8 @@ body {
     padding: 56px 6vw 40px;
 }
 
+/* A função CLAMP() é técnica avançada: o texto cresce e encolhe sozinho 
+   dependendo do tamanho da tela do usuário, sem precisar de Media Queries! */
 .hero-text h1 {
     font-family: var(--fonte-titulo);
     font-weight: 600;
@@ -127,12 +140,15 @@ body {
     margin-bottom: 14px;
 }
 
+/* "ch" é uma unidade de medida baseada na largura do caracter '0'. 
+   Limitar a largura facilita a leitura e o conforto visual. */
 .hero-text p {
     max-width: 46ch;
     font-size: 17px;
     margin-bottom: 26px;
 }
 
+/* Estilo do Botão Principal */
 .hero-cta {
     display: inline-block;
     background-color: var(--verde-escuro);
@@ -151,6 +167,20 @@ body {
     color: var(--verde-escuro);
 }
 
+/* Estilo do Botão de Conversão PWA */
+.btn-secundario {
+    background-color: transparent;
+    color: var(--ouro-terra);
+    border: 2px solid var(--ouro-terra);
+    margin-left: 10px;
+}
+
+.btn-secundario:hover {
+    background-color: var(--ouro-terra);
+    color: white;
+}
+
+/* Composição de Imagens do Hero (Efeito de sobreposição usando position: absolute) */
 .hero-foto {
     position: relative;
     padding-bottom: 36px;
@@ -177,8 +207,9 @@ body {
     box-shadow: 0 6px 14px rgba(53, 25, 3, 0.3);
 }
 
-/* ---------- Divisor produtos ---------- */
-
+/* ==========================================================================
+   6. SEÇÃO DE PRODUTOS E CATÁLOGO
+========================================================================== */
 .divisor-produtos {
     display: flex;
     align-items: center;
@@ -204,10 +235,9 @@ body {
 
 .divisor-seta { width: 20px; height: 20px; flex-shrink: 0; }
 
-/* ---------- Produtos ---------- */
-
 .produtos { padding: 0 6vw; }
 
+/* Grid responsivo automático: cria quantas colunas couberem na tela sem quebrar o layout */
 .grid-produtos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -222,6 +252,8 @@ body {
     overflow: hidden;
 }
 
+/* O aspect-ratio recorta as fotos para ficarem perfeitamente quadradas (1 por 1),
+   mesmo que o cliente suba imagens de tamanhos diferentes. */
 .card-produto img {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -240,8 +272,9 @@ body {
 
 .card-produto p { font-size: 15px; opacity: 0.85; }
 
-/* ---------- Cabeçalhos de seção ---------- */
-
+/* ==========================================================================
+   7. TEXTOS DE CABEÇALHO DE SEÇÃO
+========================================================================== */
 .section-heading { max-width: 640px; margin-bottom: 40px; }
 
 .section-heading h2 {
@@ -256,21 +289,33 @@ body {
 .section-heading--light p { color: var(--amarelo-palha); opacity: 0.9; }
 
 .heading-underline { width: 130px; height: 10px; display: block; margin-bottom: 14px; }
-
 .section-heading p { font-size: 16px; max-width: 52ch; }
 
-/* ---------- Famílias: crachás ---------- */
-
-.grid-familias {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 60px 32px;
-    max-width: 700px;
-    margin-bottom: 72px;
+/* ==========================================================================
+   8. CARROSSEL 3D COVERFLOW (INTERFACE AVANÇADA)
+========================================================================== */
+.carrossel-coverflow-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 100px auto 60px;
+    max-width: 1200px;
+    overflow-x: hidden;
+    padding: 100px 20px 40px;
 }
 
-.cracha {
+/* A propriedade "perspective" é a mágica aqui: ela diz ao navegador para 
+   tratar esse bloco como um ambiente tridimensional, com eixo Z (profundidade). */
+.carrossel-coverflow {
     position: relative;
+    width: 400px; 
+    height: 360px; 
+    perspective: 1200px; 
+}
+
+/* Estilo base dos crachás de família */
+.cracha {
     display: block;
     background-color: #fffdf6;
     border-radius: 18px;
@@ -278,21 +323,24 @@ body {
     text-align: center;
     text-decoration: none;
     color: var(--marrom-escuro);
-    box-shadow: 4px 6px 0 rgba(0, 0, 0, 0.18);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease, filter 0.5s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-.cracha:hover, .cracha:focus-visible {
-    transform: translateY(-4px);
-    box-shadow: 5px 8px 0 rgba(0, 0, 0, 0.22);
+.carrossel-coverflow .cracha:hover, .carrossel-coverflow .cracha:focus-visible {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
 }
 
 .cracha-foto {
     position: absolute;
-    top: -85px; /* Sobe a foto proporcionalmente ao seu novo tamanho */
+    top: -85px;
     left: 50%;
     transform: translateX(-50%);
-    width: 170px; /* Foto muito maior (era 140px) */
+    width: 170px; 
     height: 170px;
     border-radius: 50%;
     object-fit: cover;
@@ -303,25 +351,65 @@ body {
 .cracha h3 {
     font-family: var(--fonte-titulo);
     font-weight: 600;
-    font-size: 28px; /* Título bem maior (era 19px) */
+    font-size: 28px; 
     color: var(--verde-escuro);
     margin-bottom: 12px;
 }
 
-.cracha p { 
-    font-size: 18px; /* Texto maior (era 14.5px) */
-    margin-bottom: 20px; 
+.cracha p { font-size: 18px; margin-bottom: 20px; }
+.cracha-tag { display: inline-block; font-size: 15px; color: var(--ouro-terra); font-weight: 600; }
+
+/* Classes que o JavaScript manipula para criar a profundidade (translateZ) e o desfoque (filter: brightness) */
+.cracha.center {
+    transform: translateX(0) scale(1) translateZ(0) !important;
+    z-index: 5;
+    opacity: 1;
+    filter: brightness(100%);
+}
+.cracha.right1 {
+    transform: translateX(65%) scale(0.8) translateZ(-50px) !important;
+    z-index: 4;
+    opacity: 0.9;
+    filter: brightness(70%);
+}
+.cracha.right2 {
+    transform: translateX(120%) scale(0.6) translateZ(-100px) !important;
+    z-index: 3;
+    opacity: 0.4;
+    filter: brightness(50%);
+}
+.cracha.left1 {
+    transform: translateX(-65%) scale(0.8) translateZ(-50px) !important;
+    z-index: 4;
+    opacity: 0.9;
+    filter: brightness(70%);
+}
+.cracha.left2 {
+    transform: translateX(-120%) scale(0.6) translateZ(-100px) !important;
+    z-index: 3;
+    opacity: 0.4;
+    filter: brightness(50%);
 }
 
-.cracha-tag {
-    display: inline-block;
-    font-size: 15px; /* Arroba maior */
+/* Botões do Carrossel */
+.nav-seta {
+    background: transparent;
+    border: none;
+    color: var(--amarelo-palha);
+    font-size: 40px;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+    z-index: 10;
+    padding: 10px;
+}
+.nav-seta:hover {
     color: var(--ouro-terra);
-    font-weight: 600;
+    transform: scale(1.2);
 }
 
-/* ---------- Contato ---------- */
-
+/* ==========================================================================
+   9. FORMULÁRIO DE CONTATO (ESTILIZAÇÃO E UI)
+========================================================================== */
 .contato { display: flex; justify-content: center; }
 
 .contato-card {
@@ -367,6 +455,7 @@ body {
     color: var(--marrom-escuro);
 }
 
+/* Indicadores de foco (outline) ajudam na acessibilidade para quem navega por teclado */
 .form-orcamento input:focus-visible, .form-orcamento textarea:focus-visible {
     outline: 2px solid var(--verde-oliva);
     outline-offset: 1px;
@@ -392,8 +481,9 @@ body {
 
 .form-feedback { margin-top: 12px; font-size: 14px; color: var(--verde-escuro); min-height: 18px; }
 
-/* ---------- Rodapé ---------- */
-
+/* ==========================================================================
+   10. RODAPÉ E BOTÕES FLUTUANTES
+========================================================================== */
 .rodape {
     background-color: var(--marrom-escuro);
     color: var(--amarelo-palha);
@@ -402,28 +492,6 @@ body {
     font-size: 13.5px;
 }
 
-/* ---------- Responsivo ---------- */
-
-@media (max-width: 760px) {
-    .hero {
-        grid-template-columns: 1fr;
-        padding: 44px 6vw 30px;
-    }
-
-    .hero-foto { order: -1; padding-left: 0; }
-
-    .navbar { justify-content: center; text-align: center; }
-
-    .contato-card { padding: 34px 24px; }
-
-    .grid-familias { justify-items: center; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; scroll-behavior: auto !important; }
-}
-
-/* ---------- Botão WhatsApp ---------- */
 .whatsapp-btn {
     position: fixed;
     bottom: 20px;
@@ -439,92 +507,28 @@ body {
     z-index: 1000;
     transition: transform 0.3s;
 }
-.whatsapp-btn:hover {
-    transform: scale(1.1);
-}
-.whatsapp-btn img {
-    width: 35px;
-    height: 35px;
+
+.whatsapp-btn:hover { transform: scale(1.1); }
+.whatsapp-btn img { width: 35px; height: 35px; }
+
+/* ==========================================================================
+   11. MEDIA QUERIES (DESIGN RESPONSIVO E ACESSIBILIDADE)
+========================================================================== */
+/* Adapta a estrutura do site para telas menores que 760px (celulares e tablets pequenos) */
+@media (max-width: 760px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 44px 6vw 30px;
+    }
+
+    /* Coloca a foto acima do texto no celular (altera a ordem do Grid) */
+    .hero-foto { order: -1; padding-left: 0; }
+    .navbar { justify-content: center; text-align: center; }
+    .contato-card { padding: 34px 24px; }
 }
 
-/* ---------- Carrossel Coverflow (Efeito 3D) ---------- */
-.carrossel-coverflow-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;/* Afasta as setas dos cards */
-    margin: 100px auto 60px;
-    max-width: 1200px;/* Aumentado de 900px para ocupar mais a tela */
-    overflow-x: hidden;
-    padding: 100px 20px 40px;/* 100px no topo para a foto gigante não cortar */
-}
-
-.carrossel-coverflow {
-    position: relative;
-    width: 400px; /* Largura bem maior (era 300px) */
-    height: 360px; /* Altura bem maior (era 380px) */
-    perspective: 1200px;
-}
-
-/* Sobrescreve o hover antigo para não conflitar com a rotação */
-.carrossel-coverflow .cracha:hover, .carrossel-coverflow .cracha:focus-visible {
-    transform: none !important;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
-}
-
-.carrossel-coverflow .cracha {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease, filter 0.5s ease;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-/* Posições Espaciais */
-.cracha.center {
-    transform: translateX(0) scale(1) translateZ(0) !important;
-    z-index: 5;
-    opacity: 1;
-    filter: brightness(100%);
-}
-.cracha.right1 {
-    transform: translateX(65%) scale(0.8) translateZ(-50px) !important;
-    z-index: 4;
-    opacity: 0.9;
-    filter: brightness(70%);
-}
-.cracha.right2 {
-    transform: translateX(120%) scale(0.6) translateZ(-100px) !important;
-    z-index: 3;
-    opacity: 0.4;
-    filter: brightness(50%);
-}
-.cracha.left1 {
-    transform: translateX(-65%) scale(0.8) translateZ(-50px) !important;
-    z-index: 4;
-    opacity: 0.9;
-    filter: brightness(70%);
-}
-.cracha.left2 {
-    transform: translateX(-120%) scale(0.6) translateZ(-100px) !important;
-    z-index: 3;
-    opacity: 0.4;
-    filter: brightness(50%);
-}
-
-/* Setas */
-.nav-seta {
-    background: transparent;
-    border: none;
-    color: var(--amarelo-palha);
-    font-size: 40px;
-    cursor: pointer;
-    transition: color 0.2s, transform 0.2s;
-    z-index: 10;
-    padding: 10px;
-}
-.nav-seta:hover {
-    color: var(--ouro-terra);
-    transform: scale(1.2);
+/* Diretriz de Acessibilidade (WCAG): Desativa animações caso o usuário 
+   tenha configurado o sistema operacional para evitar enjoos ou vertigens. */
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
 }
