@@ -536,3 +536,11 @@ img {
 @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Correção para o VLibras no Mobile */
+@media (max-width: 760px) {
+    .vw-plugin-wrapper {
+        transform: scale(0.85);
+        transform-origin: right center;
+    }
+}
