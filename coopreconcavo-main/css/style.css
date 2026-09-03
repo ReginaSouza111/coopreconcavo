@@ -169,15 +169,19 @@ img {
 
 /* Estilo do Botão de Conversão PWA */
 .btn-secundario {
-    background-color: transparent;
-    color: var(--ouro-terra);
-    border: 2px solid var(--ouro-terra);
-    margin-left: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--amarelo-palha);
+    border: 2px solid var(--amarelo-palha);
+    margin-top: 15px; /* Descola do botão de cima */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
 }
 
 .btn-secundario:hover {
-    background-color: var(--ouro-terra);
-    color: white;
+    background-color: var(--amarelo-palha);
+    color: var(--verde-escuro);
 }
 
 /* Composição de Imagens do Hero (Efeito de sobreposição usando position: absolute) */
